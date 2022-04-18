@@ -23,8 +23,8 @@ class SiswaController extends Controller
 
     public function showAll()
     {
-        $siswa = Siswa::All()->sortBy('nama_siswa');
-        $sekolah = Sekolah::All()->sortBy('nama_sekolah');
+        $siswa = Siswa::orderBy('nama_siswa','ASC')->get();
+        $sekolah = Sekolah::orderBy('nama_sekolah','ASC')->get();
         return response()->json([
             'siswa' => $siswa,
             'sekolah' => $sekolah
